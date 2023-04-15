@@ -44,7 +44,7 @@ describe("Test Cases", function() {
     "password": "test123"
   };
 
-    const response = chakram.get("https://petstore.swagger.io/v2/user",{qs:user});
+    const response = chakram.get("https://petstore.swagger.io/v2/user/login",{qs:user});
 
     return response.then(function (res){
       expect(res).to.have.status(200); 
