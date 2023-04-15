@@ -7,13 +7,12 @@ describe("Test Cases", function() {
 
         it("TC0001 /v2/user", function () {
 
-          var userName = "testqauser";
+          var userName = "testqauser21";
 
           const response = chakram.get("https://petstore.swagger.io/v2/user/" + userName);
 
           return response.then(function (res){
-            //console.log(res)
-            //expect(res).to.have.status(200); 
+            expect(res).to.have.status(200); 
           });
         });
 
@@ -33,10 +32,25 @@ describe("Test Cases", function() {
           const response = chakram.post("https://petstore.swagger.io/v2/user",userInfo);
 
           return response.then(function (res){
-            console.log(res)
-            //expect(res).to.have.status(200); 
+            expect(res).to.have.status(200); 
             expect(res).to.comprise.of.json({ code: 200, type: 'unknown', message:'78799781'}); 
           });
-
       });
+
+  it("TC0003 /v2/user/login", function () {
+
+    const user = {
+    "username ": "testqauser21",
+    "password": "test123"
+  };
+
+    const response = chakram.get("https://petstore.swagger.io/v2/user",{qs:user});
+
+    return response.then(function (res){
+      expect(res).to.have.status(200); 
+      //expect(res).to.comprise.of.json({ code: 200, type: 'unknown', message:'78799781'}); 
+    });
+});
+
+
 });
