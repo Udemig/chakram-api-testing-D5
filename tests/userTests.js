@@ -52,5 +52,18 @@ describe("Test Cases", function() {
     });
 });
 
+it("TC0004 /V2/deleteuser", function (){
 
-});
+    const deleteuser = {
+      "username": "mod"
+    };
+  
+    const response = chakram.delete("https://petstore.swagger.io/v2/user",{qs:deleteuser});
+    
+    return response.then(function (res){
+      //console.log(res);
+      expect(res).to.have.status(500);
+    })
+  })
+  
+  });
